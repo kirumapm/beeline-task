@@ -6,7 +6,7 @@ spring:
     username: ${POSTGRES_USER:postgres}
     password: ${POSTGRES_PASSWORD:postgres}
   kafka:
-    bootstrap-servers: ${KAFKA_HOST:127.0.0.1}:9092
+    bootstrap-servers: ${KAFKA_HOST:127.0.0.1}:${KAFKA_PORT:9092}
     consumer:
       group-id: order-consumer-group
       key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
@@ -31,7 +31,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://${KEYCLOAK_HOST:127.0.0.1}:${KEYCLOAK_PORT:8080}/realms/beeline-task
+          issuer-uri: http://${KEYCLOAK_HOST:172.17.0.1}:${KEYCLOAK_PORT:8082}/realms/beeline-task
 
 
 server:
