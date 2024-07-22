@@ -15,6 +15,11 @@ git clone https://github.com/kirumapm/beeline-task
 cd beeline-task
 docker compose up
 ```
+then go to http://localhost:8080
+
+kafka-ui http://localhost:9090
+
+keycloak http://localhost:8082 (name: admin, password: admin)
 
 ## Stack <a id="stack"></a>
 
