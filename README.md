@@ -9,7 +9,7 @@
 2. [Credentials](#creds)
 
 ## Launch <a id="guide"></a>
-
+(you have to wait 30-40 sec until keycloak fully completes launch)
 ```shell
 git clone https://github.com/kirumapm/beeline-task
 cd beeline-task
