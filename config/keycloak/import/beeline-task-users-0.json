@@ -1,0 +1,27 @@
+{
+  "realm" : "beeline-task",
+  "users" : [ {
+    "id" : "4b12b4ad-af55-4b12-88bd-fb77ab465554",
+    "createdTimestamp" : 1721574186789,
+    "username" : "j.daniels",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : false,
+    "firstName" : "Jack ",
+    "lastName" : "Daniels",
+    "email" : "j.daniels@example.com",
+    "credentials" : [ {
+      "id" : "c76fed43-1cd7-423b-b93c-aaaced6e29ad",
+      "type" : "password",
+      "userLabel" : "My password",
+      "createdDate" : 1721574198974,
+      "secretData" : "{\"value\":\"B5bIuCvqctgOUqNbAbgNH0/gBqXCGn1ynW1wSpKrBRo=\",\"salt\":\"E0lXkGdaHe54xUCB90OLdA==\",\"additionalParameters\":{}}",
+      "credentialData" : "{\"hashIterations\":27500,\"algorithm\":\"pbkdf2-sha256\",\"additionalParameters\":{}}"
+    } ],
+    "disableableCredentialTypes" : [ ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "default-roles-beeline-task" ],
+    "notBefore" : 0,
+    "groups" : [ "/Customers" ]
+  } ]
+}

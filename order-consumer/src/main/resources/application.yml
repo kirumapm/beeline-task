@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: order-consumer
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:127.0.0.1}:5432/${POSTGRES_DB:orders}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASSWORD:postgres}
+  kafka:
+    bootstrap-servers: ${KAFKA_HOST:127.0.0.1}:9092
+    consumer:
+      group-id: order-consumer-group
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring.json.trusted.packages: io.umid.commons.dto
+        spring:
+          deserializer:
+            key:
+              delegate:
+                class: org.apache.kafka.common.serialization.StringDeserializer
+            value:
+              delegate:
+                class: org.springframework.kafka.support.serializer.JsonDeserializer
+
+
+    template:
+      default-topic: order-events
+    listener:
+      ack-mode: manual
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://${KEYCLOAK_HOST:127.0.0.1}:${KEYCLOAK_PORT:8080}/realms/beeline-task
+
+
+server:
+  servlet:
+    context-path: /orders-api
+  port: ${SERVER_PORT:8081}
+
+logging:
+  level:
+    io.umid.order: debug
+    org.springframework:
+      security: debug
+    sql: debug
+    web: debug
+
+

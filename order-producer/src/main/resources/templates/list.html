@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Orders</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/styles.css" th:href="@{/styles.css}">
+</head>
+<body>
+<h1>Create order</h1>
+<form class="create-form" th:action="@{/orders/create}" method="post">
+    <label>Order name
+        <input type="text" name="name">
+    </label>
+    <label>Order details
+        <input type="text" name="details">
+    </label>
+    <button class="create-button" type="submit">Submit</button>
+</form>
+<h1>Order list</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>USERNAME</th>
+        <th>DETAILS</th>
+    </tr>
+    <tr th:each="o : ${orders}">
+        <td th:text="${o.id}">Order id</td>
+        <td th:text="${o.name}">Order name</td>
+        <td th:text="${o.username}">Username</td>
+        <td><textarea th:text="${o.details}">Order details</textarea></td>
+        <td>
+            <form method="post" th:action="@{/orders/{orderId}/remove(orderId=${o.id})}">
+                <button type="submit">Remove order</button>
+            </form>
+        </td>
+        <td><a href="" th:href="@{/orders/{orderId}/edit(orderId=${o.id})}">Edit</a></td>
+    </tr>
+</table>
+<div class="link">
+    <a th:href="@{/}" href="http://localhost:8080">Home</a>
+</div>
+</body>
+</html>
